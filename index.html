@@ -12,7 +12,9 @@
     <header>
         <nav>
             <div class="logo">
-                <img src="logo.jpg" alt="ABC Driving School Logo">
+                <div class="logo-clickable" onclick="openLogoPopup()">
+                    <img src="WhatsApp Image 2026-06-17 at 10.27.03 AM.jpeg" alt="ABC Driving School Logo">
+                </div>
                 <span>ABC Driving School</span>
             </div>
             <ul class="nav-links">
@@ -95,7 +97,7 @@
             <h2 class="section-title">Contact Us</h2>
             <div class="footer-grid">
                 <div class="contact-info">
-                    <h3>Head Office - Payyoli</h3>
+                    <h3>Main Office - Payyoli</h3>
                     
                     <a href="https://www.google.com/maps/search/?api=1&query=ABC+Driving+School+Payyoli+Kozhikode" target="_blank" class="contact-link">
                         <p><i class="fas fa-map-marker-alt"></i> Address: Opposite Head Post Office, SBI building, Payyoli, Kozhikode, Kerala</p>
@@ -128,10 +130,25 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; 2026 ABC Driving School. Designed with Pride.</p>
+                <p>© 2026 ABC Driving School. Designed with Pride.</p>
             </div>
         </div>
     </footer>
+
+    <div id="logoModal" class="logo-modal" onclick="closeLogoPopup()">
+        <span class="modal-close">×</span>
+        <img class="modal-content" id="popupImg" src="WhatsApp Image 2026-06-17 at 10.27.03 AM.jpeg" alt="ABC Driving School Logo Large">
+    </div>
+
+    <script>
+        function openLogoPopup() {
+            document.getElementById("logoModal").style.display = "flex";
+        }
+
+        function closeLogoPopup() {
+            document.getElementById("logoModal").style.display = "none";
+        }
+    </script>
 
 </body>
 </html>
