@@ -1,6 +1,16 @@
 /* ==========================================
-   1. General Styles & Resets
+   1. VARIABLES & CORE RESETS
    ========================================== */
+:root {
+    --brand-red: #e51a22;       /* Exactly from logo */
+    --brand-black: #111111;     /* Rich logo black */
+    --brand-dark: #1a1a1a;
+    --text-main: #2d3748;       /* Smooth deep charcoal gray */
+    --light-bg: #f7fafc;
+    --white: #ffffff;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -10,47 +20,108 @@
 
 body {
     line-height: 1.6;
-    color: #333;
-    background-color: #fff;
+    color: var(--text-main);
+    background-color: var(--white);
+    overflow-x: hidden;
 }
 
 .container {
-    max-width: 1100px;
+    width: 90%;
+    max-width: 1140px;
     margin: auto;
-    padding: 0 20px;
 }
 
-/* Center utility class used in HTML */
 .center {
     text-align: center;
-    margin-top: 30px;
 }
 
 /* ==========================================
-   2. Header & Nav
+   2. REUSABLE COMPONENTS & BUTTONS
+   ========================================== */
+.btn-brand {
+    display: inline-block;
+    background: var(--brand-red);
+    color: var(--white);
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    box-shadow: 0 4px 15px rgba(229, 26, 34, 0.2);
+}
+
+.btn-brand:hover {
+    background: var(--brand-black);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.section-title {
+    text-align: center;
+    color: var(--brand-black);
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    font-weight: 800;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--brand-red);
+    margin: 12px auto 0;
+    border-radius: 2px;
+}
+
+/* ==========================================
+   3. HEADER & NAVIGATION (LOGO INSERTED)
    ========================================== */
 header {
-    background: #1a3c6d;
-    padding: 15px 0;
+    background: var(--brand-black);
+    padding: 10px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    border-bottom: 3px solid var(--brand-red);
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1100px;
+    width: 90%;
+    max-width: 1140px;
     margin: auto;
-    padding: 0 20px;
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo img {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--brand-red);
+    background: var(--white);
+}
+
+.logo span {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: 0.5px;
 }
 
 .nav-links {
@@ -59,133 +130,136 @@ nav {
 }
 
 .nav-links li {
-    margin: 0 15px;
+    margin: 0 18px;
 }
 
 .nav-links a {
-    color: white;
+    color: #e2e8f0;
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
 }
 
 .nav-links a:hover {
-    color: #fbc02d;
+    color: var(--brand-red);
 }
 
 /* ==========================================
-   3. Buttons
-   ========================================== */
-.btn-yellow {
-    background: #fbc02d;
-    color: #000;
-    padding: 10px 25px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    transition: transform 0.2s ease, background 0.3s ease;
-}
-
-.btn-yellow:hover {
-    background: #f9a825;
-    transform: translateY(-2px);
-}
-
-/* ==========================================
-   4. Hero Section
+   4. MODERN HERO SECTION
    ========================================== */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('car-hero.jpg') no-repeat center center/cover;
+    background: linear-gradient(90deg, rgba(17,17,17,0.9) 0%, rgba(17,17,17,0.7) 50%, rgba(0,0,0,0.2) 100%), 
+                url('car-hero.jpg') no-repeat center center/cover;
     height: 75vh;
-    min-height: 450px;
+    min-height: 500px;
     display: flex;
     align-items: center;
-    color: white;
-    padding: 0 10%;
+    color: var(--white);
+    padding-left: 5%;
 }
 
 .hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Keeps text and button left-aligned */
+    max-width: 600px;
 }
 
 .hero h1 {
-    font-size: 3.5rem;
-    line-height: 1.2;
-    margin-bottom: 25px;
+    font-size: 3.8rem;
+    line-height: 1.15;
+    margin-bottom: 15px;
     font-weight: 800;
 }
 
+.hero h1 .highlight {
+    color: var(--brand-red);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #cbd5e1;
+    margin-bottom: 30px;
+}
+
 /* ==========================================
-   5. About Section
+   5. INTERESTING TRUST STATS BAR
+   ========================================== */
+.stats-bar {
+    background: var(--brand-black);
+    color: var(--white);
+    padding: 30px 0;
+    border-bottom: 1px solid #2d2d2d;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+}
+
+.stat-item h3 {
+    font-size: 2.5rem;
+    color: var(--brand-red);
+    font-weight: 800;
+}
+
+.stat-item p {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #a0aec0;
+}
+
+/* ==========================================
+   6. ABOUT SECTION
    ========================================== */
 .about {
-    padding: 80px 0;
+    padding: 100px 0;
 }
 
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
     align-items: center;
 }
 
 .about-text h2 {
-    color: #1a3c6d;
-    font-size: 2.2rem;
-    margin-bottom: 20px;
+    color: var(--brand-black);
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin-bottom: 25px;
 }
 
 .about-text h2 i {
-    color: #fbc02d;
-    margin-right: 10px;
+    color: var(--brand-red);
 }
 
 .about-text p {
-    font-size: 1.05rem;
-    color: #555;
-    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #4a5568;
+    margin-bottom: 20px;
 }
 
 .about-image img {
     width: 100%;
     height: auto;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
 /* ==========================================
-   6. Services Section
+   7. SERVICES SECTION
    ========================================== */
 .services {
-    background: #f4f7fa;
-    padding: 80px 0;
-}
-
-.section-title {
-    text-align: center;
-    color: #1a3c6d;
-    margin-bottom: 40px;
-    font-size: 2.5rem;
-    position: relative;
-}
-
-.section-title::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 4px;
-    background: #fbc02d;
-    margin: 10px auto 0;
-    border-radius: 2px;
+    background: var(--light-bg);
+    padding: 100px 0;
 }
 
 .services-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    gap: 25px;
+    margin-bottom: 40px;
 }
 
 .service-list {
@@ -193,102 +267,162 @@ nav {
 }
 
 .service-list li {
+    background: var(--white);
+    padding: 18px 20px;
     margin-bottom: 15px;
     font-size: 1.05rem;
+    font-weight: 600;
+    border-radius: 12px;
     display: flex;
     align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    border-left: 4px solid var(--brand-red);
+    transition: var(--transition);
+}
+
+.service-list li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.05);
 }
 
 .service-list i {
-    color: #4caf50;
-    margin-right: 12px;
-    font-size: 1.2rem;
+    color: var(--brand-red);
+    margin-right: 15px;
+    font-size: 1.3rem;
+}
+
+/* Continuous Subtle Pulsing Effect for Contact Button */
+@keyframes structuralPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+    100% { transform: scale(1); }
+}
+
+.continuous-pulse {
+    animation: structuralPulse 2.5s infinite ease-in-out;
 }
 
 /* ==========================================
-   7. Footer / Contact Section
+   8. FOOTER & CONTACT INFO
    ========================================== */
 .contact-section {
-    background: #0d2546;
-    color: white;
-    padding: 80px 0 20px;
+    background: var(--brand-black);
+    color: var(--white);
+    padding: 90px 0 30px;
+}
+
+.contact-section .section-title {
+    color: var(--white);
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 40px;
-    align-items: start;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 50px;
+    margin-bottom: 40px;
 }
 
-.contact-info h3 {
+.contact-info h3, .contact-links h3 {
     font-size: 1.4rem;
-    color: #fbc02d;
-    margin-bottom: 20px;
+    color: var(--brand-red);
+    margin-bottom: 25px;
+    font-weight: 700;
 }
 
 .contact-link {
+    text-decoration: none;
     display: block;
-    margin-bottom: 15px;
-    transition: transform 0.2s ease;
+    margin-bottom: 18px;
+    transition: var(--transition);
 }
 
-.contact-link:hover {
-    transform: translateX(5px);
+.contact-link p {
+    color: #cbd5e1;
+    font-size: 1.05rem;
 }
 
-.contact-link p i {
-    color: #fbc02d;
+.contact-link:hover p {
+    color: var(--white);
+}
+
+.contact-link i {
+    color: var(--brand-red);
     margin-right: 12px;
-    width: 20px;
+    width: 25px;
     text-align: center;
+    font-size: 1.1rem;
 }
 
-/* Directions Panel styling */
 .contact-links {
     display: flex;
     flex-direction: column;
-    gap: 15px;
 }
 
 .btn-map {
     display: block;
-    padding: 14px;
+    padding: 15px;
+    margin-bottom: 15px;
     text-decoration: none;
-    border-radius: 25px;
+    border-radius: 30px;
     text-align: center;
-    font-weight: bold;
-    transition: transform 0.2s ease, opacity 0.3s ease;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
 }
 
-.btn-map:hover {
-    transform: translateY(-2px);
-    opacity: 0.9;
+.btn-map.white {
+    background: var(--white);
+    color: var(--brand-black);
 }
 
-.white { background: white; color: #0d2546; }
-.green { background: #2ecc71; color: white; }
+.btn-map.white:hover {
+    background: #e2e8f0;
+}
+
+.btn-map.red {
+    background: var(--brand-red);
+    color: var(--white);
+}
+
+.btn-map.red:hover {
+    background: #b81117;
+}
 
 .copyright {
     text-align: center;
-    margin-top: 60px;
+    margin-top: 50px;
     font-size: 0.85rem;
-    color: #a0aec0;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 20px;
+    color: #718096;
+    border-top: 1px solid #2d2d2d;
+    padding-top: 25px;
 }
 
 /* ==========================================
-   8. Responsive Media Queries
+   9. RESPONSIVE LAYOUTS (TABLETS & PHONES)
    ========================================== */
 @media (max-width: 992px) {
     .about-grid, .services-grid, .footer-grid {
         grid-template-columns: 1fr;
-        gap: 35px;
+        gap: 40px;
     }
-    
     .about-image {
-        order: -1; /* Keeps the picture on top when columns stack on mobile */
+        order: -1;
+    }
+    .hero {
+        background: linear-gradient(rgba(17,17,17,0.8), rgba(17,17,17,0.85)), 
+                    url('car-hero.jpg') no-repeat center center/cover;
+        padding-left: 0;
+        justify-content: center;
+        text-align: center;
+    }
+    .hero-content {
+        align-items: center;
+        padding: 0 20px;
+    }
+    .hero h1 {
+        font-size: 2.8rem;
     }
 }
 
@@ -296,27 +430,19 @@ nav {
     nav {
         flex-direction: column;
         gap: 15px;
-        text-align: center;
     }
-
     .nav-links {
+        gap: 15px;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 10px;
     }
-    
     .nav-links li {
-        margin: 0 10px;
+        margin: 0;
     }
-
-    .hero {
-        padding: 0 5%;
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
     }
-
-    .hero h1 {
-        font-size: 2.3rem;
-    }
-    
     .section-title {
         font-size: 2rem;
     }
