@@ -1,9 +1,9 @@
 /* ==========================================
-   1. VARIABLES & CORE RESETS
+   1. VARIABLES & CORE RESETS (CYBER BLUE THEME)
    ========================================== */
 :root {
-    --brand-red: #e51a22;       /* Exactly from logo */
-    --brand-black: #111111;     /* Rich logo black */
+    --brand-accent: #0076ff;    /* Premium Sleek Blue Accent */
+    --brand-black: #111111;     /* Rich Black matched to your logo */
     --brand-dark: #1a1a1a;
     --text-main: #2d3748;       /* Smooth deep charcoal gray */
     --light-bg: #f7fafc;
@@ -40,7 +40,7 @@ body {
    ========================================== */
 .btn-brand {
     display: inline-block;
-    background: var(--brand-red);
+    background: var(--brand-accent);
     color: var(--white);
     padding: 12px 30px;
     border-radius: 30px;
@@ -51,12 +51,12 @@ body {
     letter-spacing: 0.5px;
     transition: var(--transition);
     border: 2px solid transparent;
-    box-shadow: 0 4px 15px rgba(229, 26, 34, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 118, 255, 0.2);
 }
 
 .btn-brand:hover {
-    background: var(--brand-black);
-    color: var(--white);
+    background: var(--white);
+    color: var(--brand-black);
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
@@ -75,7 +75,7 @@ body {
     display: block;
     width: 60px;
     height: 4px;
-    background: var(--brand-red);
+    background: var(--brand-accent);
     margin: 12px auto 0;
     border-radius: 2px;
 }
@@ -90,7 +90,7 @@ header {
     top: 0;
     z-index: 1000;
     box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-    border-bottom: 3px solid var(--brand-red);
+    border-bottom: 3px solid var(--brand-accent);
 }
 
 nav {
@@ -122,7 +122,7 @@ nav {
     width: 50px;
     object-fit: cover;
     border-radius: 50%;
-    border: 2px solid var(--brand-red);
+    border: 2px solid var(--brand-accent);
     background: var(--white);
 }
 
@@ -151,7 +151,7 @@ nav {
 }
 
 .nav-links a:hover {
-    color: var(--brand-red);
+    color: var(--brand-accent);
 }
 
 /* ==========================================
@@ -180,7 +180,7 @@ nav {
 }
 
 .hero h1 .highlight {
-    color: var(--brand-red);
+    color: var(--brand-accent);
 }
 
 .hero p {
@@ -207,7 +207,7 @@ nav {
 
 .stat-item h3 {
     font-size: 2.5rem;
-    color: var(--brand-red);
+    color: var(--brand-accent);
     font-weight: 800;
 }
 
@@ -240,7 +240,7 @@ nav {
 }
 
 .about-text h2 i {
-    color: var(--brand-red);
+    color: var(--brand-accent);
 }
 
 .about-text p {
@@ -285,7 +285,7 @@ nav {
     display: flex;
     align-items: center;
     box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-    border-left: 4px solid var(--brand-red);
+    border-left: 4px solid var(--brand-accent);
     transition: var(--transition);
 }
 
@@ -295,7 +295,7 @@ nav {
 }
 
 .service-list i {
-    color: var(--brand-red);
+    color: var(--brand-accent);
     margin-right: 15px;
     font-size: 1.3rem;
 }
@@ -332,7 +332,7 @@ nav {
 
 .contact-info h3, .contact-links h3 {
     font-size: 1.4rem;
-    color: var(--brand-red);
+    color: var(--brand-accent);
     margin-bottom: 25px;
     font-weight: 700;
 }
@@ -354,7 +354,7 @@ nav {
 }
 
 .contact-link i {
-    color: var(--brand-red);
+    color: var(--brand-accent);
     margin-right: 12px;
     width: 25px;
     text-align: center;
@@ -389,13 +389,13 @@ nav {
     background: #e2e8f0;
 }
 
-.btn-map.red {
-    background: var(--brand-red);
+.btn-map.blue {
+    background: var(--brand-accent);
     color: var(--white);
 }
 
-.btn-map.red:hover {
-    background: #b81117;
+.btn-map.blue:hover {
+    background: #0059c6;
 }
 
 .copyright {
@@ -429,7 +429,7 @@ nav {
     max-width: 85%;
     max-height: 80vh;
     border-radius: 50%;
-    border: 5px solid var(--brand-red);
+    border: 5px solid var(--brand-accent);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     background: #fff;
     cursor: default;
@@ -448,7 +448,7 @@ nav {
 }
 
 .modal-close:hover {
-    color: var(--brand-red);
+    color: var(--brand-accent);
 }
 
 @keyframes fadeIn {
